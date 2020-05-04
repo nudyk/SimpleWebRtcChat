@@ -1,0 +1,58 @@
+﻿@model RoomViewModel
+
+@{
+    ViewData["Title"] = "Room: " + Model.Name;
+}
+<h1>
+    Room: @Html.ActionLink(Model.Name, "JoinRoom", new { roomUid = Model.Uid }, new { title = "You can use this link for join by anither user." })
+    @*<textarea id="room-url">@Url.Action("JoinRoom", new { roomUid = Model.Uid })</textarea>
+    <span class="glyphicon glyphicon-copy" id="copy-to-clipboard" style="font-size: 8px;">Copy</span>*@
+</h1>
+
+<div>@Html.LabelFor(p => p.User.Name): @Html.DisplayTextFor(p => p.User.Name)</div>
+
+<div class="row">
+    <div class="col-2">
+        <video class="video mine" style="max-width: 100%; max-height:100%;" autoplay="autoplay" muted controls="controls"></video>
+    </div>
+</div>
+<div class="row" id="app-video-carusel">
+    @*<div class="col-3" v-for="item in videos" :key="item.userName" v-bind:id="'peer_' + item.peerId">
+        <div>{{item.userName}}</div>
+        <video class="video remote" style="max-width: 100%; max-height: 100%;" autoplay="autoplay" controls="controls" v-bind:id="'video_' + item.userName"></video>
+    </div>*@
+    @*<video class="video remote" style="max-width: 100%; max-height:100%;" autoplay="autoplay" controls="controls"></video>*@
+</div>
+
+<div class="toast url-copyed" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="mr-auto">Information</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Url to Room copied
+    </div>
+</div>
+<script id="tplVideo" type="x-tmpl-mustache">
+    <div class="col-3" id="peer_{{peerId}}">
+        <div>{{userName}}</div>
+        <video class="video remote" style="max-width: 100%; max-height: 100%;" autoplay="autoplay" controls="controls" id="video_{{userName}}"></video>
+    </div>
+</script>
+@section Scripts {
+    <script type="text/javascript">
+        window.chatOptions = {
+            userName: '@Model.User.Name',
+            uid: '@Model.Uid',
+            creatorId: @Model.CreatorUserId,
+            userId: @Model.User.Id
+        }
+    </script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/lib/webrtc-adapter/dist/adapter_core.min.js"></script>
+    <script src="~/lib/peerjs/peerjs.min.js"></script>
+    <script src="~/lib/mustache.js/mustache.min.js"></script>
+    <script src="~/js/room.js"></script>
+}

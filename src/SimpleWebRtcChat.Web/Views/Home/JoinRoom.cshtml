@@ -1,0 +1,23 @@
+﻿@model JoinViewModel
+
+@{
+    ViewData["Title"] = "Join To Room:" + Model.RoomName;
+}
+    @using (Html.BeginForm("JoinRoom", "Home", FormMethod.Post))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">Enter Your Name For Room: @Html.DisplayNameFor(p=>p.RoomName)</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.HiddenFor(p => p.RoomUid)
+                    @Html.HiddenFor(p => p.RoomName)
+                    @Html.LabelFor(p => p.UserName)
+                    @Html.TextBoxFor(p => p.UserName, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+            </div>
+            <div class="panel-footer">
+                <input type="submit" value="Join" />
+            </div>
+        </div>
+    }

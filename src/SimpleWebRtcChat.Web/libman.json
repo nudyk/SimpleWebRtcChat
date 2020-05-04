@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@microsoft/signalr@latest",
+      "destination": "wwwroot/lib/microsoft/signalr/",
+      "files": [
+        "dist/browser/signalr.min.js",
+        "dist/browser/signalr.min.js.map"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "webrtc-adapter@7.5.1",
+      "destination": "wwwroot/lib/webrtc-adapter/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "peerjs@1.2.0",
+      "destination": "wwwroot/lib/peerjs/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "vue@2.6.11",
+      "destination": "wwwroot/lib/vue/",
+      "files": [
+        "dist/vue.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "mustache.js@3.1.0",
+      "destination": "wwwroot/lib/mustache.js/",
+      "files": [
+        "mustache.min.js"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "webrtc-adapter@7.5.1",
+      "destination": "wwwroot/lib/webrtc-adapter/",
+      "files": [
+        "dist/adapter_core.min.js"
+      ]
+    }
+  ]
+}

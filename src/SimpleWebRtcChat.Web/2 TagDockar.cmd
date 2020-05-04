@@ -1,0 +1,1 @@
+docker tag simple-web-rtc-chat registry.heroku.com/simple-web-rtc-chat/web
