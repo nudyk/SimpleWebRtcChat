@@ -34,7 +34,7 @@ namespace SimpleWebRtcChat.Web
 
             services.AddDbContext<DataDbContext>(options => options.UseInMemoryDatabase(databaseName: "DataDB"));
             //services.AddDbContext<CallerDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -42,7 +42,6 @@ namespace SimpleWebRtcChat.Web
             services.AddTransient<IRoomService, RoomService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IEncryptService, EncryptService>();
-            
 
             services.AddDataProtection(); //Add this
         }
@@ -88,7 +87,6 @@ namespace SimpleWebRtcChat.Web
                     context.Database.Migrate();
                 }
             }
-
         }
     }
 }

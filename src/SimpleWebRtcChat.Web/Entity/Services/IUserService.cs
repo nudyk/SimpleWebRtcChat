@@ -2,7 +2,7 @@
 
 namespace SimpleWebRtcChat.Web.Entity.Services
 {
-    public interface IUserService: IBaseService<User>
-    {
-    }
+	public interface IUserService : IBaseService<User>
+	{
+	}
 }
